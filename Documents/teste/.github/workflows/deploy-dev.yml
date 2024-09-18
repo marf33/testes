@@ -27,4 +27,4 @@ jobs:
       - name: Deploy to DEV
         run: ./deploy-dev.sh  # Script para implantar no ambiente DEV
         env:
-          DEPLOYMENT_TOKEN: ${{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}}  # Adicione o token necessário
+          DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}  # Adicione o token necessário
