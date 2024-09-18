@@ -1,0 +1,30 @@
+name: Deploy to DEV
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Ajuste conforme necessário
+
+      - name: Install dependencies
+        run: npm install  # Ajuste conforme seu gerenciador de pacotes
+
+      - name: Build
+        run: npm run build  # Ajuste conforme seu processo de build
+
+      - name: Deploy to DEV
+        run: ./deploy-dev.sh  # Script para implantar no ambiente DEVV
+        env:
+          DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}  # Adicione o token necessário
