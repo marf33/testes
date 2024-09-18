@@ -25,6 +25,6 @@ jobs:
         run: npm run build  # Ajuste conforme seu processo de build
 
       - name: Deploy to DEV
-        run: ./deploy-dev.sh  # Script para implantar no ambiente DEV
+        run: ./deploy-dev.sh  # Script para implantar no ambiente DEVV
         env:
           DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}  # Adicione o token necessário
